@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class BubbleSort
 {
 
@@ -26,16 +28,36 @@ public class BubbleSort
     
 			//The next pass will use one less comparison
 		}
-		//End Loop for passes
-		System.out.print("[");
 
-		for (int i = 0; i < myNums.length; i++)
+		System.out.println(Arrays.toString(myNums));
+
+
+		System.out.println(Arrays.toString(bubbleSort(myNums)));
+  	}
+
+	public static int[] bubbleSort(int[] jim){
+		int passes;
+		int comparisons;
+		int tempNum;
+
+		for (passes = 1; passes < jim.length; passes++)
 		{
-			System.out.print(myNums[i] + ", ");
+			//Loop once for each comparison, where comparisons are one less than the number of unsorted.
+			for (comparisons = 0; comparisons < (jim.length - passes); comparisons++)
+			{
+				//If they are out of order, swap the values
+				if (jim[comparisons] > jim[comparisons + 1])
+				{
+					tempNum = jim[comparisons];
+					jim[comparisons] = jim[comparisons + 1];
+					jim[comparisons + 1] = tempNum;
+				}
+			}
+			//End Loop for comparisons
+    
+			//The next pass will use one less comparison
 		}
 
-		System.out.print(" no more]");
-
-
-  	}
+			return jim;
+		}
 }
